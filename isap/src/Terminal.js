@@ -43,6 +43,12 @@ export default function TerminalController(props = {}) {
       case "ls":
         handleListProjects();
         break;
+      case "whoami":
+        handleWhoamiCommand();
+        break;
+      case "social":
+        handleSocialCommand();
+        break;
       default:
         setTerminalLineData((prevData) => [
           ...prevData,
@@ -62,16 +68,33 @@ export default function TerminalController(props = {}) {
       <TerminalOutput>
         <span className="green-command">
           Available commands:
+          <br />- whoami: Display information about the author
           <br />- help: Show this help message
           <br />- light: Switch to Light mode
           <br />- dark: Switch to Dark mode
           <br />- clear: Clear the terminal
           <br />- ls: List projects
+          <br />- social: Display social media links
         </span>
       </TerminalOutput>,
     ]);
   };
-
+  const handleWhoamiCommand = () => {
+    setTerminalLineData((prevData) => [
+      ...prevData,
+      <TerminalOutput>
+        <span className="gradient-text">
+          Name: Tuguldur Bayartsolmon
+          <br />
+          Occupation: Student
+          <br />
+          Location: Earth
+          <br />
+          Interests: Programming, Gaming, Trying new Things
+        </span>
+      </TerminalOutput>,
+    ]);
+  };
   const handleClearCommand = () => {
     setTerminalLineData([]);
   };
@@ -113,9 +136,20 @@ export default function TerminalController(props = {}) {
   const handleProjectClick = (project) => {
     window.open(`https://github.com/kamaterasu/${project}`, "_blank");
   };
-
+  const handleSocialCommand = () => {
+    setTerminalLineData((prevData) => [
+      ...prevData,
+      <TerminalOutput>
+        <span className="">
+          GitHub: <a href="https://github.com/kamaterasu">kamaterasu</a>
+          <br />
+        </span>
+      </TerminalOutput>,
+    ]);
+  };
   return (
     <Terminal
+      className="custom-terminal"
       name="kamaterasu@isap"
       prompt="kamaterasu@isap:~$"
       height="86vh"
