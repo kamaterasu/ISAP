@@ -152,7 +152,7 @@ export default function TerminalController(props = {}) {
       className="custom-terminal"
       name="kamaterasu@isap"
       prompt="kamaterasu@isap:~$"
-      height="86vh"
+      height="100vh"
       colorMode={colorMode}
       onInput={handleInput}
     >
