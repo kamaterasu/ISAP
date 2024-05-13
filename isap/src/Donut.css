@@ -1,0 +1,6 @@
+#donut {
+  font-family: monospace; /* Ensure consistent spacing */
+  white-space: pre-wrap; /* Preserve whitespace */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
+}

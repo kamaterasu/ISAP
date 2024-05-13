@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
 import "./Terminal.css";
-
+import Donut from "./Donut";
 const ASCII_ART = `  _                         _
  | |                       | |
  | | ____ _ _ __ ___   __ _| |_ ___ _ __ __ _ ___ _   _
@@ -22,7 +22,7 @@ export default function TerminalController(props = {}) {
   ]);
   const [colorMode, setColorMode] = useState(ColorMode.Dark);
   // eslint-disable-next-line
-  const [projects, setProjects] = useState(["ISAP"]);
+  const [projects, setProjects] = useState(["ISAP", "Donut"]);
 
   const handleInput = (terminalInput) => {
     // eslint-disable-next-line
@@ -48,6 +48,10 @@ export default function TerminalController(props = {}) {
         break;
       case "social":
         handleSocialCommand();
+        break;
+      case "donut":
+        handleClearCommand();
+        handleDonutCommand();
         break;
       default:
         setTerminalLineData((prevData) => [
@@ -75,6 +79,7 @@ export default function TerminalController(props = {}) {
           <br />- clear: Clear the terminal
           <br />- ls: List projects
           <br />- social: Display social media links
+          <br />- donut: donut go brrrr
         </span>
       </TerminalOutput>,
     ]);
@@ -98,7 +103,6 @@ export default function TerminalController(props = {}) {
   const handleClearCommand = () => {
     setTerminalLineData([]);
   };
-
   const handleLightMode = () => {
     setColorMode(ColorMode.Light);
     setTerminalLineData((prevData) => [
@@ -144,6 +148,14 @@ export default function TerminalController(props = {}) {
           GitHub: <a href="https://github.com/kamaterasu">kamaterasu</a>
           <br />
         </span>
+      </TerminalOutput>,
+    ]);
+  };
+  const handleDonutCommand = () => {
+    setTerminalLineData((prevData) => [
+      ...prevData,
+      <TerminalOutput>
+        <Donut />
       </TerminalOutput>,
     ]);
   };

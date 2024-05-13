@@ -2,3 +2,10 @@
   width: 100vw;
   height: 100vh;
 }
+body {
+  overflow: hidden;
+}
+pre {
+  font-family: monospace;
+  font-size: 2px;
+}
