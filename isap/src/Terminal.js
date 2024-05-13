@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
 import "./Terminal.css";
-import { confirmAlert } from "react-confirm-alert";
 
 const ASCII_ART = `  _                         _
  | |                       | |
@@ -22,9 +21,11 @@ export default function TerminalController(props = {}) {
     </TerminalOutput>,
   ]);
   const [colorMode, setColorMode] = useState(ColorMode.Dark);
+  // eslint-disable-next-line
   const [projects, setProjects] = useState(["ISAP"]);
 
   const handleInput = (terminalInput) => {
+    // eslint-disable-next-line
     const [command, ...args] = terminalInput.trim().split(" ");
     switch (command.toLowerCase()) {
       case "help":
