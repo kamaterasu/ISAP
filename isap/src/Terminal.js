@@ -161,7 +161,6 @@ export default function TerminalController(props = {}) {
   };
   return (
     <Terminal
-      className="custom-terminal"
       name="kamaterasu@isap"
       prompt="kamaterasu@isap:~$"
       height="100vh"
